@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 /**
- * main
+ * main - enter point
  *
- * print with puts
+ *Description: A c program with puts
  *
- *return 0
+ *Return: when return 0 is success
 */
 
 int main(void)
