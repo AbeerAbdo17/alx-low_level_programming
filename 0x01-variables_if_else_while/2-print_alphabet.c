@@ -11,10 +11,11 @@
 int main(void)
 {
 	char ch[26] = "abcdefghijklmnopqrstuvwxyz";
+	int i;
 
-	while (ch < 26)
+	for (i = 0; i < 26; i++)
 	{
-		putchar(alp[ch]);
+		putchar(ch[i]);
 		ch++;
 	}
 	putchar("\n");
