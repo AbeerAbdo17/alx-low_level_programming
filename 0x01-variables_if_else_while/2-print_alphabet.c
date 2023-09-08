@@ -8,7 +8,7 @@
  * Return: 0 (success)
 */
 
-char main(void)
+int main(void)
 {
 	char ch = 'a';
 
