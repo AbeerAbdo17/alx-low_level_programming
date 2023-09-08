@@ -14,7 +14,7 @@ int main(void)
 
 	while (number <= 9)
 	{
-		printf("\n", number);
+		printf('\n', number);
 		number++;
 	}
 	printf('\n');
