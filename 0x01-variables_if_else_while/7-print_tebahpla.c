@@ -3,18 +3,18 @@
 /**
  * main - entry point
  *
- * Description: print number from 0-9
+ * Description: the lowercase alphabet in reverse
  *
  * Return: 0 (success)
 */
 
 int main(void)
 {
-	int number;
+	char ch;
 
-	for (number = 48; number < 58; number++)
+	for (ch = 'z'; ch >= 'a'; ch--)
 	{
-		putchar(number);
+		putchar(ch);
 	}
 	putchar('\n');
 	return (0);
