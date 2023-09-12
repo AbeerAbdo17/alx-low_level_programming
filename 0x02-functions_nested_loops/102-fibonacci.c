@@ -9,8 +9,9 @@
 int main(void)
 {
 	int long fib1 = 0, fib2 = 1, sum;
+	int i;
 
-	for (int i = 0; i < 50; i++)
+	for (i = 0; i < 50; i++)
 	{
 		sum = fib1 + fib2;
 		printf("%lu", sum);
