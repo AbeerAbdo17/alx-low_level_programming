@@ -14,16 +14,16 @@ void print_triangle(int size)
 		_putchar('\n');
 	else
 	{
-		 for (row = 1; row <= size; row++)
-		 {
-			  for (colum = 1; colum <= size; colum++)
-			  {
-				  if ((row + colum) <= size)
-					  _putchar(' ');
-				  else
-					  _putchar('#');
-			  }
-			  _putchar('\n');
-		 }
+		for (row = 1; row <= size; row++)
+		{
+			for (colum = 1; colum <= size; colum++)
+			{
+				if ((row + colum) <= size)
+					_putchar(' ');
+				else
+					_putchar('#');
+			}
+			_putchar('\n');
+		}
 	}
 }
