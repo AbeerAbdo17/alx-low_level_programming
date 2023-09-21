@@ -1,6 +1,33 @@
 #include"main.h"
 
 /**
+ * rev_string - reverse
+ *
+ * @n: input
+ *
+ * Return: 0
+*/
+
+void rev_string(char *n)
+{
+	int i = 0, j = 0;
+	char t;
+
+	while (*(n + i) != '\0')
+	{
+		i++;
+	}
+	i--;
+
+	for (j = 0; j < i; j++, i--)
+	{
+		t = *(n + j);
+		*(n + j) = *(n + i);
+		*(n + i) = t;
+	}
+}
+
+/**
  * infinite_add - adds two numbers.
  *
  * @n1: input
@@ -13,43 +40,43 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, k, large = 0, numn1, numn2, cryout = 0;
+	int i = 0, j = 0, k = 0, tmp = 0, numn1 = 0, numn2 = 0, cryout = 0;
 
-	for (i = 0; n1[i] != '\0'; i++)
-		;
-	for (j = 0; n2[j] != '\0'; j++)
-		;
-	if (i > j)
-		large = i;
-	else
-		large = j;
-	if (large + 1 > size_r)
+	while (*(n1 + i) != '\0')
+		i++;
+	while (*(n2 + j) != '\0')
+		j++;
+	i--;
+	j--;
+	if (j >= size_r || i >= size_r)
 		return (0);
-	r[large] = '\0';
-	for (k = large - 1; k >= 0; k--)
+	while (j >= 0 || i >= 0 || cryout == 1)
 	{
-		i--;
-		j--;
-
-		if (i >= 0)
-			numn1 = n1[i] - '0';
+		if (i < 0)
+			numn1 = 0;
 		else
-		       numn1 = 0;
-		if (j >= 0)
-			numn2 = n2[i] - '0';
-		else
+			numn1 = *(n1 + i) - '0';
+		if (j < 0)
 			numn2 = 0;
-		r[k] = (numn1 + numn2 + cryout) % 10 + '0';
-		cryout = (numn1 + numn2 + cryout) / 10;
-	}
-	if (cryout == 1)
-	{
-		r[large + 1] = '\0';
-		if (large + 2 > size_r)
+		else
+			numn2 = *(n2 + j) - '0';
+		tmp = numn1 + numn2 + cryout;
+
+		if (tmp >= 10)
+			cryout = 1;
+		else
+			cryout = 0;
+
+		if (k >= (size_r - 1))
 			return (0);
-		while (large-- >= 0)
-			r[large + 1] = r[large];
-		r[0] = cryout + '\0';
+		*(r + k) = (tmp % 10) + '0';
+		k++;
+		j--;
+		i--;
 	}
+	if (k == size_r)
+		return (0);
+	*(r + k) = '\0';
+	rev_string(r);
 	return (r);
 }
