@@ -5,9 +5,9 @@
  *
  * @n1: input
  * @n2: input
- * @r: buffer 
+ * @r: buffer
  * @size_r: buffer size
- * 
+ *
  * Return: pointer to the result
 */
 
@@ -33,7 +33,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 		if (i >= 0)
 			numn1 = n1[i] - '0';
-		else 
+		else
 		       numn1 = 0;
 		if (j >= 0)
 			numn2 = n2[i] - '0';
