@@ -7,24 +7,24 @@
  *
  * Return: 0 or 1
 */
-int index(char *s);
-int test(char *s, int begin, int last, int m);
+int _index(char *s);
+int _test(char *s, int begin, int last, int m);
 int is_palindrome(char *s)
 {
-	int last = index(s);
+	int last = _index(s);
 
-	return (test(s, 0, last - 1, last % 2));
+	return (_test(s, 0, last - 1, last % 2));
 }
 
 /**
- * index -  return  last index
+ * _index - return  last index
  *
  * @s: input
  *
  * Return: index
 */
 
-int index(char *s)
+int _index(char *s)
 {
 	int i = 0;
 
@@ -34,7 +34,7 @@ int index(char *s)
 }
 
 /**
- * test - check is palindrome or not
+ * _test - check is palindrome or not
  *
  * @s: input
  * @begin: input
@@ -43,7 +43,7 @@ int index(char *s)
  * Return: 0 or 1
 */
 
-int test(char *s, int begin, int last, int m)
+int _test(char *s, int begin, int last, int m)
 {
 	if ((begin == last && m != 0) || (begin == last + 1 && m == 0))
 		return (1);
