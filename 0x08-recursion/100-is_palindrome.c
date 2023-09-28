@@ -29,7 +29,7 @@ int _index(char *s)
 	int i = 0;
 
 	if (*s != '\0')
-		i = i + index(s + 1) + 1;
+		i = i + _index(s + 1) + 1;
 	return (i);
 }
 
@@ -50,5 +50,5 @@ int _test(char *s, int begin, int last, int m)
 	else if (s[begin] != s[last])
 		return (0);
 	else
-		return (test(s, begin + 1, last - 1, m));
+		return (_test(s, begin + 1, last - 1, m));
 }
