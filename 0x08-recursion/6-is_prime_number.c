@@ -15,7 +15,7 @@
 int prime(int n, int v);
 int is_prime_number(int n)
 {
-	return (prime(n, n - 1));
+	return (prime(n, 1));
 }
 
 /**
@@ -34,5 +34,5 @@ int prime(int n, int v)
 	else if (n % v == 0 || n <= 1)
 		return (0);
 	else
-		return (prime(n, v - 1));
+		return (prime(n, v + 1));
 }
