@@ -6,7 +6,7 @@
  * @argc: input
  * @argv: input
  *
- * Return: 1 or 0
+ * Return: 0
 */
 
 int main(int argc, char **argv)
@@ -19,11 +19,11 @@ int main(int argc, char **argv)
 		i = argv[argc];
 		while (*i)
 		{
-			if (*i < '0' || *i > '9')
+			if (*i < 48 || *i > 57)
 				return (printf("Error\n"), 1);
-			add = add + atoi(argv[argc]);
 			i++;
 		}
+		add = add + atoi(argv[argc]);
 	}
 	printf("%d\n", add);
 	return (0);
