@@ -7,10 +7,10 @@
  * @argc: input
  * @argv: input
  *
- * Return: 0
+ * Return: 1
 */
 
-int main(int argc, char const **argv)
+int main(int argc, char **argv)
 {
 	int mul;
 
