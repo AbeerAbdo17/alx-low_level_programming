@@ -52,9 +52,9 @@ char *argstostr(int ac, char **av)
 	{
 		while (av[x][y] != '\0')
 		{
+			ptr[c] = av[x][y];
 			y++;
 			c++;
-			ptr[c] = av[x][y];
 		}
 		ptr[c] = '\n';
 		c++;
