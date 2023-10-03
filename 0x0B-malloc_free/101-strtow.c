@@ -34,7 +34,7 @@ int number(char *c)
 */
 char **strtow(char *str)
 {
-	int x = 0, y = 1, a = 0, b = 0, n = 0, c = 0;
+	int x, y, a = 0, b = 0, n = 0, c = 0;
 	char **ptr;
 
 	if (str == NULL || *str == '\0')
@@ -50,8 +50,8 @@ char **strtow(char *str)
 	{
 		if (str[x] != ' ' && (x == 0 || str[x - 1] == ' '))
 		{
-			while (str[x + y] != ' ' && str[x + y])
-				y++;
+			for (y = 1; str[x + y] != ' ' && str[x + y]; y++)
+				;
 			y++;
 			ptr[c] = (char *)malloc(y * sizeof(char));
 			y--;
