@@ -3,16 +3,16 @@
 /**
  * length - length of string
  *
- * @s: input
+ * @c: input
  *
  * Return: length
 */
 
-int length(char *s)
+int length(char *c)
 {
 	int x = 0;
 
-	while (s[x] != '\0')
+	while (c[x] != '\0')
 	{
 		x++;
 	}
