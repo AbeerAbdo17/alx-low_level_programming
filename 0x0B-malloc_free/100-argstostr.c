@@ -38,9 +38,9 @@ char *argstostr(int ac, char **av)
 
 	while (x < ac)
 	{
+		n = n + length(av[x]);
 		x++;
 		n++;
-		n = n + length(av[x]);
 	}
 
 	ptr = malloc(sizeof(char) * n + 1);
