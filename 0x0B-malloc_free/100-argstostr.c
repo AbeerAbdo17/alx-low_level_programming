@@ -50,12 +50,9 @@ char *argstostr(int ac, char **av)
 
 	for (x = 0; x < ac ; x++)
 	{
-		while (av[x][y] != '\0')
-		{
+		for (y = 0; av[x][y] != '\0'; y++, c++)
 			ptr[c] = av[x][y];
-			y++;
-			c++;
-		}
+
 		ptr[c] = '\n';
 		c++;
 	}
