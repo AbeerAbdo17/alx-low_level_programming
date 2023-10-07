@@ -30,7 +30,7 @@ char *mem(char *p, char c, unsigned int m)
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *p;
+	char *p;
 
 	if (size == 0 || nmemb == 0)
 		return (NULL);
