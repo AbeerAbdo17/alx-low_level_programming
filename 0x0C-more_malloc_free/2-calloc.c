@@ -5,18 +5,18 @@
  *
  * @p: pointer
  * @c: input
- * @m: max
+ * @m: number of copy
  *
  * Return: pointer
 */
 
 char *mem(char *p, char c, unsigned int m)
 {
-	char *x = p;
+	unsigned int x;
 
-	while (m--)
-		*p++ = c;
-	return (x);
+	for (x = 0; x < m; x++)
+		*p[x] = c;
+	return (p);
 }
 
 /**
