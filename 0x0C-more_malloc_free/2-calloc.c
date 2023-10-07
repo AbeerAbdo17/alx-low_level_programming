@@ -31,11 +31,11 @@ char *mem(char *p, char c, unsigned int m)
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *p;
-	
+
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	p = malloc(sizeof(int) * nmemb);
-	if (p == 0)
+	if (p == NULL)
 		return (NULL);
 	mem(p, 0, sizeof(int) * nmemb);
 
