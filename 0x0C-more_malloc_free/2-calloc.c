@@ -15,7 +15,7 @@ char *mem(char *p, char c, unsigned int m)
 	unsigned int x;
 
 	for (x = 0; x < m; x++)
-		*p[x] = c;
+		p[x] = c;
 	return (p);
 }
 
