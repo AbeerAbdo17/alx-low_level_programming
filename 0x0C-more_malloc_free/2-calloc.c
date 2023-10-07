@@ -5,19 +5,20 @@
  *
  * @p: pointer
  * @c: input
- * @m: number of copy
+ * @m: max
  *
  * Return: pointer
 */
 
 char *mem(char *p, char c, unsigned int m)
 {
-        unsigned int x;
+	char *x = p;
 
-        for (x = 0; x < m; x++)
-                p[x] = c;
-        return (p);
+	while (m--)
+		*p++ = c;
+	return (x);
 }
+
 /**
  * *_calloc - allocates memory for an array, using malloc
  *
@@ -29,13 +30,14 @@ char *mem(char *p, char c, unsigned int m)
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *p;
-
-	if (size == 0 || nmemb == 0)
+	void *p;
+	
+	if (nmemb == 0 || size == 0)
 		return (NULL);
 	p = malloc(sizeof(int) * nmemb);
-	if (p == NULL)
+	if (p == 0)
 		return (NULL);
-	mem(p, 0, size * nmemp);
+	mem(p, 0, sizeof(int) * nmemb);
+
 	return (p);
 }
