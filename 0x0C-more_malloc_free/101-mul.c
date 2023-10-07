@@ -48,14 +48,11 @@ int convert(char *x)
 */
 void printint(unsigned long int num)
 {
-	unsigned long int d = 1, x = 0, r;
+	unsigned long int d = 1, x, r;
 
-	while (num / d > 9)
-	{
-		x++;
-		d = d * 10;
-	}
-	for (; d >= 1; n %= d, d /= 10)
+	for (x = 0; num / d > 9; x++, d *= 10)
+		;
+	for (; d >= 1; num %= d, d /= 10)
 	{
 		r = num / d;
 		_putchar(48 + r);
@@ -65,17 +62,17 @@ void printint(unsigned long int num)
  * main - print result
  *
  * @argc: input
- * @argv: input list 
+ * @argv: input list
  *
  * Return: 0
 */
-int main(int argc, char const **argv)
+int main(int argc, char *argv[])
 {
 	(void)argc;
 
 	if (argc != 3)
 	{
-		print("Error");
+		print("Error ");
 		exit(98);
 	}
 
