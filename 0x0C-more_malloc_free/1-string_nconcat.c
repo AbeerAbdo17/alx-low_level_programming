@@ -21,9 +21,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	for (lens1 = 0; lens1 != '\0'; lens1++)
+	for (lens1 = 0; s1[1ens1] != '\0'; lens1++)
 		;
-	for (lens2 = 0; lens2 != '\0'; lens2++)
+	for (lens2 = 0; s2[lens2] != '\0'; lens2++)
 		;
 	ptr = malloc(lens1 + n + 1);
 	if (ptr == NULL)
