@@ -15,26 +15,25 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
-	unsigned int x = 0, y = 0, len1 = 0, len2 = 0;
+	unsigned int x = 0, y = 0, lens1 = 0, lens2 = 0;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	while (len1 != '\0')
-		len1++;
-	while (len2 != '\0')
-		len2++;
-	ptr = malloc(len1 + n + 1);
+	while (lens1 != '\0')
+		lens1++;
+	while (lens2 != '\0')
+		lens2++;
+	ptr = malloc(lens1 + n + 1);
 	if (ptr == NULL)
 	{
 		return (NULL);
 	}
-
-	while (s1[x] != '\0')
+	
+	for (x = 0; s1[x] != '\0'; x++)
 	{
 		ptr[x] = s1[x];
-		x++;
 	}
 
 	while (y < n)
