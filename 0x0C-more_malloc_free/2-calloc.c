@@ -1,6 +1,23 @@
 #include"main.h"
 #include <stdlib.h>
+/**
+ * *mem - file memory
+ *
+ * @p: pointer
+ * @c: input
+ * @m: number of copy
+ *
+ * Return: pointer
+*/
 
+char *mem(char *p, char c, unsigned int m)
+{
+        unsigned int x;
+
+        for (x = 0; x < m; x++)
+                p[x] = c;
+        return (p);
+}
 /**
  * *_calloc - allocates memory for an array, using malloc
  *
@@ -19,6 +36,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	p = malloc(sizeof(int) * nmemb);
 	if (p == NULL)
 		return (NULL);
-	else
-		return (p);
+	mem(p, 0, size * nmemp);
+	return (p);
 }
