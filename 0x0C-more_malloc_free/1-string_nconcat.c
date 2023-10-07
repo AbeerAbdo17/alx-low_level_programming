@@ -15,16 +15,16 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
-	unsigned int x, y, lens1 = 0, lens2 = 0;
+	unsigned int x, y, lens1, lens2;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	while (lens1 != '\0')
-		lens1++;
-	while (lens2 != '\0')
-		lens2++;
+	for (lens1 = 0; lens1 != '\0'; lens1++)
+		;
+	for (lens1 = 0; lens1 != '\0'; lens1++)
+		;
 	ptr = malloc(lens1 + n + 1);
 	if (ptr == NULL)
 	{
