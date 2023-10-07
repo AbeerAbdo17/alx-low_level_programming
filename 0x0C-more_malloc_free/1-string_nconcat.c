@@ -24,7 +24,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (s1[lens1] != '\0')
 		lens1++;
 	while (s2[lens2] != '\0')
-		lens2;
+		lens2++;
 	ptr = malloc(lens1 + n + 1);
 	if (ptr == NULL)
 	{
