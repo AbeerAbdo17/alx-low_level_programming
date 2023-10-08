@@ -1,21 +1,16 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdio.h>
 /**
  * check - digid or non digid
- * @c: input*
+ * @c: input
  * Return: 0 or 1
 */
 int check(char *c)
 {
-	int x = 0;
+	int x;
 
-	while (c[x])
-	{
+	for  (x = 0; c[x]; x++)
 		if (c[x] < '0' || c[x] > '9')
 			return (0);
-		x++;
-	}
 	return (1);
 }
 /**
@@ -45,11 +40,9 @@ int main(int argc, char **argv)
 	st1 = argv[1], st2 = argv[2];
 	if (argc != 3 || !check(st1) || !check(st2))
 	{
-		printf("Error\n");
-		exit(98);
+		printf("Error\n"), exit(98);
 	}
-	lens1 = len(st1);
-	lens2 = len(st2);
+	lens1 = len(st1), lens2 = len(st2);
 	l = lens1 + lens2 + 1;
 	res = malloc(sizeof(int) * l);
 	if (res == NULL)
@@ -83,3 +76,4 @@ int main(int argc, char **argv)
 	free(res);
 	return (0);
 }
+
