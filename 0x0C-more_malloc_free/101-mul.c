@@ -35,7 +35,7 @@ int len(char *c)
 int main(int argc, char **argv)
 {
 	char *st1, *st2;
-	int lens1, lens2, l, x, crr, d1, d2, *res, b = 0;
+	int lens1, lens2, l, x, crr = 0, d1, d2, *res, b = 0;
 
 	st1 = argv[1], st2 = argv[2];
 	if (argc != 3 || !check(st1) || !check(st2))
@@ -52,7 +52,6 @@ int main(int argc, char **argv)
 	for (lens1 = lens1 - 1; lens1 >= 0; lens1--)
 	{
 		d1 = st1[lens1] - '0';
-		crr = 0;
 		for (lens2 = len(st2) - 1; lens2 >= 0; lens2--)
 		{
 			d2 = st2[lens2] - '0';
