@@ -40,7 +40,8 @@ int main(int argc, char **argv)
 	st1 = argv[1], st2 = argv[2];
 	if (argc != 3 || !check(st1) || !check(st2))
 	{
-		printf("Error\n"), exit(98);
+		printf("Error\n");
+		exit(98);
 	}
 	lens1 = len(st1), lens2 = len(st2);
 	l = lens1 + lens2 + 1;
@@ -75,4 +76,3 @@ int main(int argc, char **argv)
 	free(res);
 	return (0);
 }
-
