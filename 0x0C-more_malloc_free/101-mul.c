@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-
 /**
  * check - digid or non digid
  * @c: input*
@@ -33,14 +32,6 @@ int len(char *c)
 	return (x);
 }
 /**
- * err - handel error
-*/
-void err(void)
-{
-	printf("Error\n");
-	exit(98);
-}
-/**
  * main -  multiplies two positive numbers
  * @argc: input
  * @argv: input
@@ -53,7 +44,10 @@ int main(int argc, char **argv)
 
 	st1 = argv[1], st2 = argv[2];
 	if (argc != 3 || !check(st1) || !check(st2))
-		err();
+	{
+		printf("Error\n");
+		exit(98);
+	}
 	lens1 = len(st1);
 	lens2 = len(st2);
 	l = lens1 + lens2 + 1;
