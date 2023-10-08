@@ -6,18 +6,33 @@
 */
 int check(char *c)
 {
-	int x;
+	int x = 0;
 
-	for  (x = 0; c[x]; x++)
+	while (c[x])
+	{
 		if (c[x] < '0' || c[x] > '9')
 			return (0);
+		x++;
+	}
 	return (1);
 }
+
+/**
+ * err - handel error
+*/
+
+void err(void)
+{
+	printf("Error\n");
+	exit(98);
+}
+
 /**
  * len - return length
  * @c: input
  * Return: length
 */
+
 int len(char *c)
 {
 	int x = 0;
@@ -26,23 +41,22 @@ int len(char *c)
 		x++;
 	return (x);
 }
+
 /**
  * main -  multiplies two positive numbers
  * @argc: input
  * @argv: input
  * Return: noyhing
 */
+
 int main(int argc, char **argv)
 {
 	char *st1, *st2;
-	int lens1, lens2, l, x, crr = 0, d1, d2, *res, b = 0;
+	int lens1, lens2, l, x, crr, d1, d2, *res, b = 0;
 
 	st1 = argv[1], st2 = argv[2];
 	if (argc != 3 || !check(st1) || !check(st2))
-	{
-		printf("Error\n");
-		exit(98);
-	}
+		err();
 	lens1 = len(st1), lens2 = len(st2);
 	l = lens1 + lens2 + 1;
 	res = malloc(sizeof(int) * l);
@@ -53,6 +67,7 @@ int main(int argc, char **argv)
 	for (lens1 = lens1 - 1; lens1 >= 0; lens1--)
 	{
 		d1 = st1[lens1] - '0';
+		crr = 0;
 		for (lens2 = len(st2) - 1; lens2 >= 0; lens2--)
 		{
 			d2 = st2[lens2] - '0';
