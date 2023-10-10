@@ -4,7 +4,7 @@
  *
  * @d: input
  * @name: dog name
- * age: dog age
+ * @age: dog age
  * @owner: dog owner
  *
  * Return: nothing
