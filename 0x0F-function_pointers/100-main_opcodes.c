@@ -1,5 +1,5 @@
 #include"function_pointers.h"
-
+#include <stdio.h>
 /**
  * main -  entry point
  *
@@ -8,7 +8,7 @@
  *
  * Return: 0
 */
-int main(int argc, *argv[])
+int main(int argc, char *argv[])
 {
 	char *pt = (char *)main;
 	int x;
@@ -25,6 +25,6 @@ int main(int argc, *argv[])
 		exit(2);
 	}
 	while (x--)
-		printf("%02hhx", *pt++, x ? " " : "\n");
+		printf("%02hhx%s", *pt++, x ? " " : "\n");
 	return (0);
 }
