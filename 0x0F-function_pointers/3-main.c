@@ -25,12 +25,12 @@ int main(int argc, char *argv[])
 	if (get_op_func(p) == NULL || p[1] != '\0')
 	{
 		printf("Error\n");
-		exit(98);
+		exit(99);
 	}
 	if ((*p == '/' && y == 0) || (*p == '%' && y == 0))
 	{
 		printf("Error\n");
-		exit(98);
+		exit(100);
 	}
 	printf("%d\n", get_op_func(p)(x, y));
 	return (0);
