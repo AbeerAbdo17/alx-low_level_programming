@@ -1,22 +1,5 @@
 #include "lists.h"
 /**
- * lens - length of string
- *
- * @xstr: input
- *
- * Return: len of xstr
- */
-int lens(char *xstr)
-{
-	int x;
-
-	if (xstr == NULL)
-		return (0);
-	for (x = 0; *xstr++; x++)
-		;
-	return (x);
-}
-/**
  * print_list - prints all the elements of a list_t list
  *
  * @h: head pointer
@@ -35,7 +18,7 @@ size_t print_list(const list_t *h)
 			printf("\n");
 		}
 		else
-			printf("[%d]%s\n", lens(h->str), h->str);
+			printf("[%d]%s\n", h->len, h->str);
 		h = h->next;
 		x++;
 	}
