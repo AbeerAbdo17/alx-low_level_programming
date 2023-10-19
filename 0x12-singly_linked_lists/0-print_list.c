@@ -1,11 +1,11 @@
 #include "lists.h"
 /**
- * len - length of string
+ * lens - length of string
  *
  * @xstr: input
  *
  * Return: len of xstr
-*/
+ */
 int lens(char *xstr)
 {
 	int x;
@@ -22,7 +22,7 @@ int lens(char *xstr)
  * @h: head pointer
  *
  * Return: list size
-*/
+ */
 size_t print_list(const list_t *h)
 {
 	size_t x = 0;
@@ -31,7 +31,7 @@ size_t print_list(const list_t *h)
 	{
 		if (h->str == NULL)
 			printf("[0](nil)\n");
-		else 
+		else
 			printf("[%d]%s\n", lens(h->str), h->str);
 		h = h->next;
 		x++;
