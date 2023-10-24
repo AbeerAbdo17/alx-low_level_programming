@@ -1,59 +1,71 @@
 #include "lists.h"
-const listint_t **reall(const listint_t **oldlist, size_t sizelist, const listint_t *newlist);
+size_t reall(const listint_t *head);
 /**
  * print_listint_safe - prints a listint_t linked list.
  * @head: input
- * Return: number of nodes in the list
+ * Return: number of nodes
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t x, numlist = 0;
-	const listint_t **nlist = NULL;
+	size_t nodls, inditem = 0;
 
-	while (head)
+	nodls = reall(head);
+	if (nodls == 0)
 	{
-		for (x = 0; x < numlist; x++)
+		while (head != NULL)
 		{
-			if (head == nlist[x])
-			{
-				printf("->[%p] %d\n", (void *)head, head->n);
-				free(nlist);
-				return (numlist);
-			}
+			printf("[%p]%d\n", (void *)head, head->n);
+			head = head->next;
+			nodls++;
 		}
-		numlist++;
-		nlist = reall(nlist, numlist, head);
-		printf("[%p] %d \n", (void *)head, head->n);
-		head = head->next;
 	}
-	free(nlist);
-	return (numlist);
+	else
+	{
+		for (inditem = 0; inditem < nodls; inditem++)
+		{
+			printf("[%p]%d\n", (void *)head, head->n);
+			head = head->next;
+		}
+		printf("->[%p]%d\n", (void *)head, head->n);
+	}
+	return (nodls);
 }
 /**
- * reall - realloc memory
- *
- * @oldlist: input
- * @sizelist: input
- * @newlist: input
- *
- * Return: pointer
+ * reall - count
+ * @head: input
+ * Return: number
  */
-const listint_t **reall(const listint_t **oldlist, size_t sizelist, const listint_t *newlist)
+size_t reall(const listint_t *head)
 {
-	const listint_t **neew;
-	size_t x;
+	const listint_t *tmpitem, *crritem;
+	size_t x = 1;
 
-	neew = malloc(sizelist * sizeof(listint_t *));
-	if (!neew)
+	if (head == NULL || head->next == NULL)
+		return (0);
+	tmpitem = head->next;
+	crritem = (head->next)->next;
+
+	while (crritem != NULL)
 	{
-		free(oldlist);
-		exit(98);
+		if (tmpitem == crritem)
+		{
+			tmpitem = head;
+			while (tmpitem != crritem)
+			{
+				x++;
+				tmpitem = tmpitem->next;
+				crritem = crritem->next;
+			}
+			tmpitem = tmpitem->next;
+			while (tmpitem != crritem)
+			{
+				x++;
+				tmpitem = tmpitem->next;
+			}
+			return (x);
+		}
+		tmpitem = tmpitem->next;
+		crritem = (crritem->next)->next;
 	}
-	for (x = 0; x < sizelist - 1; x++)
-	{
-		neew[x] = oldlist[x];
-	}
-	neew[x] = newlist;
-	free(oldlist);
-	return (neew);
+	return (0);
 }
