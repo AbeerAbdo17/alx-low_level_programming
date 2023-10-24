@@ -7,12 +7,12 @@ const listint_t **reall(const listint_t **oldlist, size_t sizelist, const listin
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t x = 0, numlist = 0;
+	size_t x, numlist = 0;
 	const listint_t **nlist = NULL;
 
 	while (head)
 	{
-		while (x < numlist)
+		for (x = 0; x < numlist; x++)
 		{
 			if (head == nlist[x])
 			{
@@ -20,7 +20,6 @@ size_t print_listint_safe(const listint_t *head)
 				free(nlist);
 				return (numlist);
 			}
-			x++;
 		}
 		numlist++;
 		nlist = reall(nlist, numlist, head);
@@ -42,7 +41,7 @@ size_t print_listint_safe(const listint_t *head)
 const listint_t **reall(const listint_t **oldlist, size_t sizelist, const listint_t *newlist)
 {
 	const listint_t **neew;
-	size_t x = 0;
+	size_t x;
 
 	neew = malloc(sizelist * sizeof(listint_t *));
 	if (!neew)
@@ -50,10 +49,9 @@ const listint_t **reall(const listint_t **oldlist, size_t sizelist, const listin
 		free(oldlist);
 		exit(98);
 	}
-	while (x < sizelist - 1)
+	for (x = 0; x < sizelist - 1; x++)
 	{
 		neew[x] = oldlist[x];
-		x++;
 	}
 	neew[x] = newlist;
 	free(oldlist);
