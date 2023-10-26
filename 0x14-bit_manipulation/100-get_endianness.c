@@ -6,7 +6,7 @@
 int get_endianness(void)
 {
 	unsigned int number = 1;
-	unsigned char *byt = (unsigned char *) & number;
+	unsigned char *byt = (unsigned char *)&number;
 
 	if (*byt == 1)
 		return (1);
