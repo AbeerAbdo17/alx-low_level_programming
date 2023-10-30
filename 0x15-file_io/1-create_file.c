@@ -22,5 +22,8 @@ int create_file(const char *filename, char *text_content)
 	if (leng)
 		byteswritten = write(fd, text_content, leng);
 	close(fd);
-	return (byteswritten == leng ? 1 : -1);
+	if (byteswritten == leng)
+		return (1);
+	else
+		return (-1);
 }
