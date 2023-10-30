@@ -1,4 +1,5 @@
 #include"main.h"
+int len(char *st);
 /**
  * create_file -  function that creates a file
  * @filename: input
@@ -9,11 +10,9 @@
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
-	ssize_t leng = 0;
+	ssize_t leng = len(text_content);
 	ssize_t byteswritten = 0;
 
-	while (text_content[leng] != '\0')
-		leng++;
 	if (filename == NULL)
 		return (-1);
 	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
@@ -22,8 +21,23 @@ int create_file(const char *filename, char *text_content)
 	if (leng)
 		byteswritten = write(fd, text_content, leng);
 	close(fd);
-	if (byteswritten == leng)
-		return (1);
-	else
-		return (-1);
+	return (byteswritten == leng ? 1 : -1);
+}
+/**
+ * len - return length
+ * @st: input
+ * Return: len
+ */
+int len(char *st)
+{
+	int x = 0;
+
+	if (st == NULL)
+		return (0);
+	while (*st)
+	{
+		x++;
+		st++;
+	}
+	return (x);
 }
