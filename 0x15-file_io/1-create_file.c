@@ -19,18 +19,16 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	if (text_content != NULL)
-	{
-		leng = 0;
+	leng = 0;
 
-		while (text_content[leng] != '\0')
-			leng++;
+	while (text_content[leng] != '\0')
+		leng++;
+	if (leng)
 		byteswritten = write(fd, text_content, leng);
-		if (byteswritten == -1)
-		{
-			close(fd);
-			return (-1);
-		}
+	if (byteswritten == -1)
+	{
+		close(fd);
+		return (-1);
 	}
 
 	close(fd);
