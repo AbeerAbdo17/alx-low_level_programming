@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error: Can't write to file %s\n", argv[2]), exit(99);
 	while ((bytes = read(from, buffer, BUFF_SIZE)) > 0)
 	{
-		if (write(to, buffer, bytes) != bytes)
+		if (write(to, buffer, bytes) != -1)
 			dprintf(2, "Error: Can't write to file %s\n", argv[2]), exit(99);
 	}
 	if (bytes == -1)
