@@ -27,9 +27,11 @@ int main(int argc, char *argv[])
 	}
 	if (bytes == -1)
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
-	if (close(from) == -1)
+	from = close(from);
+	to = close(to);
+	if (from)
 		dprintf(2, "Error: Can't close fd %d\n", from), exit(100);
-	if (close(to) == -1)
+	if (to)
 		dprintf(2, "Error: Can't close fd %d\n", to), exit(100);
-	return (0);
+	return (EXIT_SUCCESS);
 }
