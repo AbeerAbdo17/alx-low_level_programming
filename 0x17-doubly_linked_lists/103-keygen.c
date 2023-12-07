@@ -22,12 +22,12 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 
 	tp = 0;
 	for (qw = 0; qw < len; qw++)
-		tp += argv[1][i];
+		tp += argv[1][qw];
 	pss[1] = xv[(tp ^ 79) & 63];
 
 	tp = 1;
 	for (qw = 0; qw < len; qw++)
-		tp *= argv[1][i];
+		tp *= argv[1][qw];
 	pss[2] = xv[(tp ^ 85) & 63];
 
 	tp = 0;
