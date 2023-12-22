@@ -14,7 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	char *nval;
 
 	if (ht == NULL || key == NULL || *key == '\0')
-		 return (0);
+		return (0);
 	idx = key_index((const unsigned char *)key, ht->size);
 	xtp = ht->array[idx];
 	while (xtp != NULL)
@@ -38,11 +38,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	return (1);
 }
 /**
- * mak_nod - creat node
- * @k: key
- * @v: value
+ * mak_Nod - creat node
+ * @key: key
+ * @value: value
  * Return: new nod
-*/
+ */
 hash_node_t *mak_Nod(const char *key, const char *value)
 {
 	hash_node_t *xn;
